@@ -1,10 +1,15 @@
 import React from 'react'
-import Test from "./components/common/Form/Test"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Login from "./pages/Login";
+import Admin from './pages/Admin'
 
 export default function App() {
     return (
-        <div>
-            <Test/>
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/login" exact component={ Login } />
+                <Route path="/" component={ Admin } />
+            </Switch>
+        </Router>
     )
 }
