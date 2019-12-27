@@ -1,23 +1,19 @@
 import { createStore } from 'redux';
+import reducer from './reducer'
+import { createAddUserAction } from './action/usersAction'
 
-// 写一个函数作为reducer
-function reducer(state, action) {
-    if (action.type === "increase") {
-        return state + 1;
-    }else if (action.type === "decrease") {
-        return state - 1;
-    }else{
-        return state;
-    }
-}
+
 
 // 创建一个store数据仓库，传入一个reducer，和初始状态
-const store = createStore(reducer, 10);
+const store = createStore(reducer);
 
-// 写一个action
-const action = {
-    type: "increase"
-}
+console.log(store.getState());
 
 // 分发action
-store.dispacth(action)
+store.dispatch(createAddUserAction({
+    id: 79,
+    name: "zfy",
+    age: 21
+}))
+
+console.log(store.getState());
