@@ -1,19 +1,5 @@
-import { createStore } from 'redux';
-import reducer from './reducer'
-import { createAddUserAction } from './action/usersAction'
+export{ default as createStore } from "./createStore"
+export{ default as bindActionCreators } from "./bindActionCreators"
+export{ default as combineReducers } from "./combineReducers"
 
 
-
-// 创建一个store数据仓库，传入一个reducer，和初始状态
-const store = createStore(reducer);
-
-console.log(store.getState());
-
-// 分发action
-store.dispatch(createAddUserAction({
-    id: 79,
-    name: "zfy",
-    age: 21
-}))
-
-console.log(store.getState());
